@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>浏览器检测</title>
+  <script src="bower_components/jquery/dist/jquery.min.js" ></script>
+</head>
+<body>
+<p>浏览器检测：HTML 增加对应的className （ is_ie | is_edge | is_firefox | is_chrome | is_opera | is_safari | is_other ）</p>
+</body>
+
+<script type="text/javascript">
+
+  function getBrows() {
+    var _ua = window.navigator.userAgent;
+    if (_ua.match(/MSIE/) || _ua.match(/Trident/)) {
+      this.brows = 'is_ie';
+      $('html').addClass('is_ie');
+    } else if (_ua.indexOf("Edge") > -1) {
+      this.brows = 'is_edge';
+      $('html').addClass('is_edge is_ie is_ie11');
+    } else if (_ua.indexOf("Firefox") > -1) {
+      this.brows = 'is_firefox';
+      $('html').addClass('is_firefox');
+    } else if (_ua.indexOf("Chrome") > -1) {
+      this.brows = 'is_chrome';
+      $('html').addClass('is_chrome');
+    } else if (_ua.indexOf("Opera") > -1) {
+      this.brows = 'is_opera';
+      $('html').addClass('is_opera');
+    } else if (_ua.indexOf("Safari") > -1) {
+      this.brows = 'is_safari';
+      $('html').addClass('is_safari');
+    } else {
+      this.brows = 'is_other';
+      $('html').addClass('is_other');
+    }
+    return false;
+  }
+
+  var page = page || {};
+
+  page.util = {
+    onece: function () {
+      getBrows();
+    }
+  };
+
+  $(function () {
+    page.util.onece(); //浏览器检测
+
+    // 初始化操作
+
+    // 事件绑定
+    $(window).on({ 
+      load : function(){  
+
+      },  
+      resize: function(){  
+
+      },  
+      scroll :function(){  
+
+      } 
+    });
+  });
+
+</script>
+</html>

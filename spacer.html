@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>spacer 留白分割</title>
+  <script src="bower_components/jquery/dist/jquery.min.js" ></script>
+
+  <style type="text/css">
+    .js-spacer{
+      background-color:#cdcdcd;
+
+      margin-bottom:20px;
+
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<p>可以根据屏幕和设备 分开来设置间距</p>
+
+<div class="js-spacer" data-n="1" data-spacer="20">spacer 1 * 20</div>
+<div class="js-spacer" data-n="2">spacer 2 * 20 </div>
+<div class="js-spacer" data-n="3">spacer 3 * 20</div>
+<div class="js-spacer" data-n="4" data-spacer="10">spacer 4 * 10</div>
+</body>
+<script>
+  $(function () {
+    $('.js-spacer').each(function(index, el) {
+      var $this = $(el);
+      var n = $this.data('n') || 1;
+      var spacer = $this.data('spacer') || 20;
+
+      if(n){
+        $this.css({
+          'height': n * spacer,
+        });
+      }
+    });
+  });
+
+
+</script>
+</html>

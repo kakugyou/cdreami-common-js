@@ -1,0 +1,21 @@
+{
+  "name": "cdreami-common-js",
+  "homepage": "https://github.com/kakugyou/cdreami-common-js",
+  "authors": [
+    "kakugyou <guoxiao@cdreami.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.3"
+  }
+}

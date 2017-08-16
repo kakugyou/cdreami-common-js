@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>背景图JS加载方案</title>
+  <style type="text/css">
+    .bg{
+      float:left;
+      width:400px;
+      height:200px;
+      border:5px solid #ddd;
+
+      margin-left:20px;
+
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+  </style>
+
+  <script src="bower_components/jquery/dist/jquery.min.js" ></script>
+
+</head>
+<body>
+<p>将背景图的定义从CSS文件中独立出来，修改方便</p>
+
+<div class="bg js__bg-cover" data-src="image/kawaru.png">
+
+</div>
+
+<div class="bg js__bg-contain" data-src="image/kawaru.png">
+
+</div>
+
+<div class="bg js__bg-clip" data-src="image/kawaru.png">
+
+</div>
+
+</body>
+<script>
+  $(function () {
+    $('.js__bg-cover').each(function(index, el) {
+      var $this = $(el);
+      var src = $this.data('src'); //可以考虑结合media
+      if(src){
+        $this.css({
+          'background-image': 'url('+src+')',
+          'background-size': 'cover',
+        });
+      }
+    });
+
+    $('.js__bg-contain').each(function(index, el) {
+      var $this = $(el);
+      var src = $this.data('src');
+      if(src) {
+        $this.css({
+          'background-image': 'url(' + src + ')',
+          'background-size': 'contain',
+        });
+      }
+    });
+
+
+    $('.js__bg-clip').each(function(index, el) {
+      var $this = $(el);
+      var src = $this.data('src');
+      if(src) {
+        $this.css({
+          'background-image': 'url(' + src + ')',
+        });
+      }
+    });
+  });
+
+</script>
+</html>
